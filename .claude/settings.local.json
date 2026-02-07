@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:readyresearch.org)",
+      "WebSearch",
+      "Bash(powershell -Command:*)",
+      "WebFetch(domain:astro.build)",
+      "WebFetch(domain:maiobarbero.github.io)",
+      "WebFetch(domain:github.com)",
+      "Skill(page-viewer)",
+      "Bash(node:*)",
+      "Bash(gh auth status:*)",
+      "Bash(Get-ChildItem:*)",
+      "Bash(Select-Object Name, Mode)",
+      "Bash(npx degit maiobarbero/astro_academia . --force)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
