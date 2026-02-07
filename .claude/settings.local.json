@@ -25,7 +25,11 @@
       "Bash(then echo \"OK: $f\")",
       "Bash(else echo \"MISSING: $f\")",
       "Bash(fi)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(git check-ignore:*)",
+      "Bash(echo:*)",
+      "Bash(npx vercel:*)",
+      "Bash(vercel:*)"
     ]
   }
 }
