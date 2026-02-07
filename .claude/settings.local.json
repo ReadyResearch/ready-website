@@ -15,7 +15,17 @@
       "Bash(npx degit maiobarbero/astro_academia . --force)",
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git branch:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "Bash(for f in logo.png hero.png testimonial-joannie.jpeg testimonial-kieren.jpeg testimonial-chris.jpeg testimonial-kun.jpeg testimonial-luke.jpeg testimonial-jody.jpg team-michael.jpg team-emily.jpg team-peter.jpg team-alexander.jpg team-group.jpg volunteers.jpg research-scrub.jpg)",
+      "Bash(do if [ -f \"C:/Users/alexa/Documents/GitHub/readyresearch-migrate/public/images/$f\" ])",
+      "Bash(then echo \"OK: $f\")",
+      "Bash(else echo \"MISSING: $f\")",
+      "Bash(fi)",
+      "Bash(done)"
     ]
   }
 }
