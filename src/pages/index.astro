@@ -1,37 +1,142 @@
 ---
 import Layout from '../layouts/Layout.astro'
-
-import { profile } from '@/settings'
-import { publications } from '@/data/cv'
-import ProfilePictures from '@/assets/profile_pictures.jpg'
-import Hero from '@/components/ui/Hero.astro'
 import Grid from '@/components/ui/Grid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
+import { profile } from '@/settings'
 
-const { fullName, title, institute, research_areas } = profile
+const projects = [
+	{ title: 'MOOC Development', description: 'Massive Open Online Course teaching skills for doing good.' },
+	{ title: 'AI Attitudes Survey', description: 'Survey of public attitudes towards AI in Australia.' },
+	{ title: 'AI Safety Training', description: 'Facilitation training for AI Safety projects.' },
+	{ title: 'Policy Engagement', description: 'AI-related policy engagement support in Australia.' },
+]
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const researchOutputs = [
+	{
+		title: 'Charitable Donations Review',
+		description: 'A systematic review examining interventions to increase charitable donations.',
+		url: 'https://docs.google.com/document/d/1osAwuO1J9L2z3PDGQn6UkFEA-4vs5WV9eJ5hAASnS7o/edit?usp=sharing',
+	},
+	{
+		title: 'Animal Products Consumption Review',
+		description: 'A preprint reviewing interventions to reduce animal product consumption.',
+		url: 'https://osf.io/mcdsq/',
+	},
+	{
+		title: 'SCRUB: Survey of COVID-19 Responses',
+		description: 'Understanding behaviour during the COVID-19 pandemic.',
+		url: 'https://www.scrubcovid19.org/',
+	},
+]
+
+const testimonials = [
+	{
+		name: 'Joannie Lee',
+		role: 'Volunteer Researcher',
+		quote: 'I found it very worthwhile to volunteer my time as I was able to learn directly from researchers and gain incredible research skills.',
+		image: '/images/testimonial-joannie.jpeg',
+	},
+	{
+		name: 'Kieren Watkins',
+		role: 'Systematic Review Team',
+		quote: 'The most valuable part was training in systematic review and professional development in science writing.',
+		image: '/images/testimonial-kieren.jpeg',
+	},
+	{
+		name: 'Chris Bryant',
+		role: 'Research Collaborator',
+		quote: 'The Ready team were extremely conscientious, efficient, and an all around pleasure to work with.',
+		image: '/images/testimonial-chris.jpeg',
+	},
+	{
+		name: 'Kun Zhao',
+		role: 'Project Adviser',
+		quote: 'Ready demonstrated efficiency in conducting rigorous research on topics that matter.',
+		image: '/images/testimonial-kun.jpeg',
+	},
+	{
+		name: 'Luke Freeman',
+		role: 'Research User',
+		quote: 'Without professional researchers, we would likely have been stabbing in the dark on strategy.',
+		image: '/images/testimonial-luke.jpeg',
+	},
+	{
+		name: 'Jody Lightfoot',
+		role: 'Research User',
+		quote: 'The meta-analysis improved my understanding of effective fundraising tactics.',
+		image: '/images/testimonial-jody.jpg',
+	},
+]
 ---
 
 <Layout>
 	<!-- Hero Section -->
-	<section class='flex items-center gap-12 border-b pb-12'>
-		<Hero
-			fullName={fullName}
-			title={title}
-			institute={institute}
-			profilePicture={ProfilePictures}
-		/>
+	<section class="flex flex-col items-center text-center gap-6 border-b pb-12">
+		<img src="/images/logo.png" alt="Ready Research" class="w-48" />
+		<h1 class="text-4xl font-bold">Ready Research</h1>
+		<p class="text-xl max-w-2xl">
+			Research, training, and communication services to help address the world's most pressing problems.
+		</p>
 	</section>
 
-	<!-- Research Areas -->
-	<section class='py-12 border-b'>
-		<Grid gridTitle='Research Areas' gridItems={research_areas} />
+	<!-- Mission Section -->
+	<section class="py-12 border-b">
+		<h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+		<p class="text-lg">
+			Ready Research trains and supports researchers to address the world's most pressing problems.
+			We provide research, training, and communication services across areas including international
+			development, AI governance, animal welfare, climate, and behaviour science.
+		</p>
 	</section>
 
-	<!-- Recent Publications -->
-	<section class='py-12 border-t'>
-		<ArticleList listTitle='Recent Publications' listItems={publications} />
+	<!-- Current Projects -->
+	<section class="py-12 border-b">
+		<Grid gridTitle="Current Projects" gridItems={projects} />
+	</section>
+
+	<!-- Research Outputs -->
+	<section class="py-12 border-b">
+		<h2 class="text-3xl font-bold mb-8">Research Outputs</h2>
+		<div class="flex flex-col gap-6">
+			{researchOutputs.map((item) => (
+				<a href={item.url} target="_blank" rel="noopener noreferrer" class="block p-6 rounded-lg bg-base-200 hover:bg-base-300 transition-colors">
+					<h3 class="text-xl font-semibold mb-2">{item.title}</h3>
+					<p>{item.description}</p>
+				</a>
+			))}
+		</div>
+	</section>
+
+	<!-- Opportunities -->
+	<section class="py-12 border-b">
+		<h2 class="text-3xl font-bold mb-8">Opportunities</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<div class="p-6 rounded-lg bg-base-200">
+				<h3 class="text-xl font-semibold mb-3">New Researchers</h3>
+				<p>Volunteer to learn systematic review and meta-analysis skills while contributing to research that matters.</p>
+			</div>
+			<div class="p-6 rounded-lg bg-base-200">
+				<h3 class="text-xl font-semibold mb-3">Experienced Researchers & Practitioners</h3>
+				<p>Join our advisory team or collaborate on projects in international development, AI governance, animal welfare, climate, and behaviour science.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section class="py-12">
+		<h2 class="text-3xl font-bold mb-8">What People Say</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{testimonials.map((t) => (
+				<div class="p-6 rounded-lg bg-base-200">
+					<div class="flex items-center gap-4 mb-4">
+						<img src={t.image} alt={t.name} class="w-12 h-12 rounded-full object-cover" />
+						<div>
+							<p class="font-semibold">{t.name}</p>
+							<p class="text-sm opacity-70">{t.role}</p>
+						</div>
+					</div>
+					<p class="italic">"{t.quote}"</p>
+				</div>
+			))}
+		</div>
 	</section>
 </Layout>

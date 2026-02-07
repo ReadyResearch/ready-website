@@ -1,18 +1,21 @@
 export const profile = {
-	fullName: 'Your Name',
-	title: '',
+	fullName: 'Ready Research',
+	title: 'Research, Training & Communication',
 	institute: '',
-	author_name: '', // Author name to be highlighted in the papers section
+	author_name: '',
 	research_areas: [
-		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
+		{ title: 'MOOC Development', description: 'Massive Open Online Course teaching skills for doing good', field: 'education' },
+		{ title: 'AI Attitudes Survey', description: 'Survey of public attitudes towards AI in Australia', field: 'ai' },
+		{ title: 'AI Safety Training', description: 'Facilitation training for AI Safety projects', field: 'ai-safety' },
+		{ title: 'Policy Engagement', description: 'AI-related policy engagement support in Australia', field: 'policy' },
 	],
 }
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
 	email: '',
-	linkedin: '',
-	x: 'https://www.x.com/',
+	linkedin: 'https://www.linkedin.com/company/rapid-effective-action-development-initiative-readi/',
+	x: '',
 	bluesky: '',
 	github: '',
 	gitlab: '',
@@ -23,18 +26,18 @@ export const social = {
 }
 
 export const template = {
-	website_url: 'https://localhost:4321', // Astro needs to know your site’s deployed URL to generate a sitemap. It must start with http:// or https://
+	website_url: 'https://readyresearch.org',
 	menu_left: false,
 	transitions: true,
-	lightTheme: 'light', // Select one of the Daisy UI Themes or create your own
-	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
+	lightTheme: 'readyresearch',
+	darkTheme: 'readyresearch',
 	excerptLength: 200,
 	postPerPage: 5,
-    base: '' // Repository name starting with /
+    base: ''
 }
 
 export const seo = {
-	default_title: 'Astro Academia',
-	default_description: 'Astro Academia is a template for academic websites.',
-	default_image: '/images/astro-academia.png',
+	default_title: 'Ready Research',
+	default_description: 'Research, training, and communication services to help address the world\'s most pressing problems.',
+	default_image: '/images/logo.png',
 }

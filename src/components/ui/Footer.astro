@@ -1,23 +1,18 @@
 ---
-import { profile } from '../../settings'
-
-const { fullName } = profile
+import { template } from '../../settings'
 ---
 
 <footer class='footer footer-center bg-base-100 text-base-content px-4 py-8'>
+	<nav class='flex flex-wrap justify-center gap-4'>
+		<a href={`${template.base}/`}>Home</a>
+		<a href={`${template.base}/about`}>About</a>
+		<a href={`${template.base}/research`}>Research</a>
+		<a href={`${template.base}/resources`}>Resources</a>
+		<a href="https://forms.gle/ihLpTb432GmEstLM9" target="_blank" rel="noopener noreferrer">Contact Us</a>
+	</nav>
 	<aside>
-		<p>
-			Copyright © {new Date().getFullYear()} - All right reserved by {fullName}
-		</p>
-		<p>
-			Built with <a
-				href='https://github.com/maiobarbero/astro_academia'
-				class='font-bold'
-				target='_blank'>Astro Academia</a
-			> 🎓 by <a
-				href='http://maiobarbero.dev'
-        class="font-bold"
-				target='_blank'>Matteo Barbero</a>
-		</p>
+		<a href="https://www.linkedin.com/company/rapid-effective-action-development-initiative-readi/" target="_blank" rel="noopener noreferrer" class="link">
+			LinkedIn
+		</a>
 	</aside>
 </footer>

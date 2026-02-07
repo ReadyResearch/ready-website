@@ -1,0 +1,45 @@
+---
+import Layout from '@/layouts/Layout.astro'
+
+const resources = [
+	{
+		title: 'Excel AMSTAR 2 Checklist',
+		description: 'The AMSTAR 2 checklist is widely used in assessing the quality and internal validity of review evidence. Alexander Saeri created a spreadsheet to simplify completion. You can import it into Google Docs for collaborative work.',
+		url: 'https://drive.google.com/open?id=1w3ycm4LYlKjaR60bol7BU1KyY2wRSjlY',
+		linkText: 'Download Checklist',
+	},
+	{
+		title: 'AI Speech Transcription and Analysis for Social Science',
+		description: 'Guidance on leveraging AI tools to enhance social science research efficiency through speech transcription and analysis capabilities.',
+		url: 'https://forum.effectivealtruism.org/posts/nxBKxFcfMnEb3Cmys/how-to-use-ai-speech-transcription-and-analysis-to',
+		linkText: 'Read on EA Forum',
+	},
+	{
+		title: 'AI Governance Through Behavioral Science',
+		description: 'Overview of applying behavioral science principles to strengthen artificial intelligence governance practices and decision-making.',
+		url: 'https://forum.effectivealtruism.org/posts/LD6wKNdPbxfdgYnao/concrete-actions-to-improve-ai-governance-the-behaviour',
+		linkText: 'Read on EA Forum',
+	},
+]
+---
+
+<Layout title="Resources | Ready Research">
+	<div class="prose max-w-none">
+		<h1 class="text-3xl font-bold mb-8">Resources</h1>
+		<p class="text-lg mb-12">
+			Tools and guides produced by our team to support researchers and practitioners.
+		</p>
+
+		<div class="flex flex-col gap-6 not-prose">
+			{resources.map((resource) => (
+				<div class="p-6 rounded-lg bg-base-200">
+					<h2 class="text-xl font-bold mb-3">{resource.title}</h2>
+					<p class="mb-4">{resource.description}</p>
+					<a href={resource.url} target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary text-secondary-content">
+						{resource.linkText}
+					</a>
+				</div>
+			))}
+		</div>
+	</div>
+</Layout>

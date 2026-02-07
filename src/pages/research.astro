@@ -1,69 +1,81 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { profile } from "@/settings";
-import BetterIcon from "@/components/ui/BetterIcon.astro";
-import List from "@/components/ui/List.astro";
-import {RESEARCH_ICONS} from "@/data/researchIcons";
+import Layout from '@/layouts/Layout.astro'
 
-const { research_areas } = profile;
+const researchAreas = [
+	{
+		title: 'Pandemic Management & Prevention',
+		description: 'The Survey of COVID-19 Responses to Understand Behaviour (SCRUB) project aimed to provide current and future policymakers with actionable insights into public attitudes and behaviours relating to the COVID-19 pandemic. Led by Ready Research in partnership with BehaviourWorks Australia, Monash Sustainable Development Institute, Monash University, and Australian Catholic University, involving over 100 international researchers. Funded by the Monash Sustainable Development Institute and Victorian Government, generating 21 data collection waves.',
+		image: '/images/research-scrub.jpg',
+		papers: [
+			{
+				title: 'Information safety assurances increase intentions to use COVID-19 contact tracing applications, regardless of autonomy-supportive or controlling message framing',
+				url: 'https://www.frontiersin.org/articles/10.3389/fpsyg.2020.591638/full',
+			},
+			{
+				title: 'Age and education moderate the relationship between confidence in health and political authorities and intention to adopt COVID-19 health-protective behaviours',
+				url: 'https://osf.io/cwfx2/download?format=pdf',
+			},
+		],
+	},
+	{
+		title: 'Animal Welfare',
+		description: 'Systematic review identifying interventions that reduce animal product consumption. This overview of reviews examined dietary consumption interventions and their effectiveness.',
+		papers: [
+			{
+				title: 'Interventions to reduce animal product consumption (ScienceDirect)',
+				url: 'https://www.sciencedirect.com/science/article/pii/S2666833521000976',
+			},
+			{
+				title: 'What interventions influence animal product consumption? (EA Forum)',
+				url: 'https://forum.effectivealtruism.org/posts/azHZ2pQj9JgdZLC63/what-interventions-influence-animal-product-consumption',
+			},
+		],
+	},
+	{
+		title: 'Charitable Donations',
+		description: 'Overview of systematic reviews examining interventions that promote charitable donations. This research examines what works to increase giving behaviour.',
+		papers: [
+			{
+				title: 'Interventions promoting charitable donations (Springer)',
+				url: 'https://link.springer.com/article/10.1007/s11266-022-00499-y',
+			},
+			{
+				title: 'Summary of charitable donations review',
+				url: 'https://docs.google.com/document/d/1osAwuO1J9L2z3PDGQn6UkFEA-4vs5WV9eJ5hAASnS7o/edit?usp=sharing',
+			},
+		],
+	},
+]
 ---
 
-<Layout title="Research | Dr. Marie Curie">
-  <div class="prose max-w-none">
-    <h1 class="text-3xl font-bold mb-8">Research Statement</h1>
+<Layout title="Research | Ready Research">
+	<div class="prose max-w-none">
+		<h1 class="text-3xl font-bold mb-8">Research</h1>
+		<p class="text-lg mb-12">
+			Our research spans pandemic management, animal welfare, and charitable giving. We conduct systematic reviews and meta-analyses to generate actionable evidence.
+		</p>
 
-    <div class="mb-12">
-      <p class="text-lg mb-6">
-        My research focuses on groundbreaking investigations into radioactivity and the discovery of new radioactive elements. Through meticulous experimental techniques and innovative methodologies, I aim to advance our understanding of radioactive phenomena and their applications in both physics and chemistry.
-      </p>
-      <p class="text-lg mb-6">
-        This interdisciplinary approach has led to significant discoveries, including the isolation of polonium and radium, contributing to the foundation of modern nuclear physics and radiochemistry.
-      </p>
-    </div>
-
-    <h2 class="text-2xl font-bold mb-6">Research Areas</h2>
-    <div class="grid gap-8 mb-12">
-      {
-        research_areas.map((area) => (
-          <div class="flex gap-6 items-start">
-            <BetterIcon>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-width="2"
-                class="size-6 stroke-accent"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d={RESEARCH_ICONS[area.field as keyof typeof RESEARCH_ICONS]?.path || RESEARCH_ICONS['computer-science'].path}
-                />
-              </svg>
-            </BetterIcon>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">{area.title}</h3>
-              <p class="text-base">{area.description}</p>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-
-    <List listTitle="Current Projects" listItems={[
-      {
-        title: "Radioactivity Studies",
-        description: "Investigation of radioactive properties in uranium minerals and isolation of new radioactive elements."
-      },
-      {
-        title: "Measurement Techniques",
-        description: "Development of precise methods for measuring radioactive emissions and their properties."
-      }
-    ]} />
-
-    <h2 class="text-2xl font-bold mb-6">Research Impact</h2>
-    <p class="text-lg mb-6">
-      My research has opened new frontiers in radioactivity studies, leading to practical applications in both scientific research and medical treatments. The discoveries have revolutionized our understanding of atomic structure and radioactive decay processes.
-    </p>
-  </div>
+		<div class="flex flex-col gap-12 not-prose">
+			{researchAreas.map((area) => (
+				<section class="p-6 rounded-lg bg-base-200">
+					<h2 class="text-2xl font-bold mb-4">{area.title}</h2>
+					{area.image && (
+						<img src={area.image} alt={area.title} class="rounded-lg mb-4 max-h-64 object-cover w-full" />
+					)}
+					<p class="text-base mb-6">{area.description}</p>
+					<h3 class="text-lg font-semibold mb-3">Published Papers</h3>
+					<div class="flex flex-col gap-2">
+						{area.papers.map((paper) => (
+							<a href={paper.url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-3 rounded bg-base-300 hover:bg-base-100 transition-colors">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-5 h-5 shrink-0 stroke-current">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+								</svg>
+								<span>{paper.title}</span>
+							</a>
+						))}
+					</div>
+				</section>
+			))}
+		</div>
+	</div>
 </Layout>
