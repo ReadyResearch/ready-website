@@ -3,8 +3,9 @@ import Layout from '@/layouts/Layout.astro'
 
 const researchAreas = [
 	{
+		id: 'pandemic',
 		title: 'Pandemic Management & Prevention',
-		description: 'The Survey of COVID-19 Responses to Understand Behaviour (SCRUB) project aimed to provide current and future policymakers with actionable insights into public attitudes and behaviours relating to the COVID-19 pandemic. Led by Ready Research in partnership with BehaviourWorks Australia, Monash Sustainable Development Institute, Monash University, and Australian Catholic University, involving over 100 international researchers. Funded by the Monash Sustainable Development Institute and Victorian Government, generating 21 data collection waves.',
+		description: 'The Survey of Covid-19 Behaviours (SCRUB) project aimed to provide current and future policymakers with actionable insights into public attitudes and behaviours relating to the COVID-19 pandemic. It was led by Ready Research partnering with BehaviourWorks Australia, Monash Sustainable Development Institute, Monash University and Australian Catholic University, plus over 100 international researchers. In Australia, SCRUB received pilot funding from Monash Sustainable Development Institute, then Victorian Government funding for 15 months, producing 21 waves of data collection and reporting.',
 		image: '/images/research-scrub.jpg',
 		papers: [
 			{
@@ -18,8 +19,9 @@ const researchAreas = [
 		],
 	},
 	{
+		id: 'animal-welfare',
 		title: 'Animal Welfare',
-		description: 'Systematic review identifying interventions that reduce animal product consumption. This overview of reviews examined dietary consumption interventions and their effectiveness.',
+		description: 'We recently completed an overview of reviews identifying interventions that reduce dietary consumption of animal products.',
 		papers: [
 			{
 				title: 'Interventions to reduce animal product consumption (ScienceDirect)',
@@ -32,8 +34,9 @@ const researchAreas = [
 		],
 	},
 	{
+		id: 'charitable-donations',
 		title: 'Charitable Donations',
-		description: 'Overview of systematic reviews examining interventions that promote charitable donations. This research examines what works to increase giving behaviour.',
+		description: 'We conducted an overview of systematic reviews identifying interventions that promote charitable donations.',
 		papers: [
 			{
 				title: 'Interventions promoting charitable donations (Springer)',
@@ -50,14 +53,11 @@ const researchAreas = [
 
 <Layout title="Research | Ready Research">
 	<div class="prose max-w-none">
-		<h1 class="text-3xl font-bold mb-8">Research</h1>
-		<p class="text-lg mb-12">
-			Our research spans pandemic management, animal welfare, and charitable giving. We conduct systematic reviews and meta-analyses to generate actionable evidence.
-		</p>
+		<h1 class="text-3xl font-bold mb-12">Research Outputs</h1>
 
 		<div class="flex flex-col gap-12 not-prose">
 			{researchAreas.map((area) => (
-				<section class="p-6 rounded-lg bg-base-200">
+				<section id={area.id} class="p-6 rounded-lg bg-base-200">
 					<h2 class="text-2xl font-bold mb-4">{area.title}</h2>
 					{area.image && (
 						<img src={area.image} alt={area.title} class="rounded-lg mb-4 max-h-64 object-cover w-full" />

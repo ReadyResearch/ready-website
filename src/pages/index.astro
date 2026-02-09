@@ -1,30 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Grid from '@/components/ui/Grid.astro'
 import { profile } from '@/settings'
 
-const projects = [
-	{ title: 'MOOC Development', description: 'Massive Open Online Course teaching skills for doing good.' },
-	{ title: 'AI Attitudes Survey', description: 'Survey of public attitudes towards AI in Australia.' },
-	{ title: 'AI Safety Training', description: 'Facilitation training for AI Safety projects.' },
-	{ title: 'Policy Engagement', description: 'AI-related policy engagement support in Australia.' },
-]
-
-const researchOutputs = [
+const researchProjects = [
 	{
 		title: 'Charitable Donations Review',
-		description: 'A systematic review examining interventions to increase charitable donations.',
-		url: 'https://docs.google.com/document/d/1osAwuO1J9L2z3PDGQn6UkFEA-4vs5WV9eJ5hAASnS7o/edit?usp=sharing',
+		description: 'If you\'re trying to decide which messaging will best encourage prospective donors to contribute financially to your charity, then you should read about our charitable donations review.',
+		url: '/research#charitable-donations',
 	},
 	{
 		title: 'Animal Products Consumption Review',
-		description: 'A preprint reviewing interventions to reduce animal product consumption.',
-		url: 'https://osf.io/mcdsq/',
+		description: 'If you\'re working in animal welfare or trying to encourage the public to eat less meat and other animal products, then you should read our animal products consumption review preprint.',
+		url: '/research#animal-welfare',
 	},
 	{
 		title: 'SCRUB: Survey of COVID-19 Responses',
-		description: 'Understanding behaviour during the COVID-19 pandemic.',
-		url: 'https://www.scrubcovid19.org/',
+		description: 'If you\'re trying to decide on the policies that will most reduce harm and support a sustainable recovery from COVID-19, you should read about our Survey of COVID-19 Responses to Understand Behaviour (SCRUB) project.',
+		url: '/research#pandemic',
 	},
 ]
 
@@ -32,13 +24,13 @@ const testimonials = [
 	{
 		name: 'Joannie Lee',
 		role: 'Volunteer Researcher',
-		quote: 'I found it very worthwhile to volunteer my time as I was able to learn directly from researchers and gain incredible research skills.',
+		quote: 'I am very grateful for the opportunity given to me to contribute to this research and paper, I found it very worthwhile for me to volunteer my time as I was able to learn directly from researchers and learn incredible research skills that weren\'t offered to me otherwise. Being involved in this project also tested my personal fit for research as a career path and prepared me for writing my Masters thesis. I would encourage anyone who is interested to gain research skills and work directly with researchers in the EA space to get involved!',
 		image: '/images/testimonial-joannie.jpeg',
 	},
 	{
 		name: 'Kieren Watkins',
 		role: 'Systematic Review Team',
-		quote: 'The most valuable part was training in systematic review and professional development in science writing.',
+		quote: 'The most valuable part of helping Ready was the training and practice I received in how to conduct a systematic review, along with the professional development working in a science writing team. I really liked the feeling of growing in my competence to critically assess the quality of papers, and offer editing assistance with the manuscript.',
 		image: '/images/testimonial-kieren.jpeg',
 	},
 	{
@@ -50,20 +42,26 @@ const testimonials = [
 	{
 		name: 'Kun Zhao',
 		role: 'Project Adviser',
-		quote: 'Ready demonstrated efficiency in conducting rigorous research on topics that matter.',
+		quote: 'Being an adviser on a Ready project gave me a glimpse of the efficiency at which rigorous research could be carried out on topics that matter. One of the most valuable aspects was being able to work with and learn from a network of expert practitioners and academic researchers.',
 		image: '/images/testimonial-kun.jpeg',
 	},
 	{
 		name: 'Luke Freeman',
 		role: 'Research User',
-		quote: 'Without professional researchers, we would likely have been stabbing in the dark on strategy.',
+		quote: 'I\'m very glad that the review on charitable giving existed. Without professional researchers doing this work we would likely have been stabbing in the dark. The results helped us prioritise expanding tax-deductibility into more countries (a key part of our 2023 strategy) and helped us avoid over-updating on some of the other recommendations we\'ve seen which seemed to be either based on weak evidence or had evidence against the interventions.',
 		image: '/images/testimonial-luke.jpeg',
 	},
 	{
 		name: 'Jody Lightfoot',
 		role: 'Research User',
-		quote: 'The meta-analysis improved my understanding of effective fundraising tactics.',
+		quote: 'The meta-meta analysis on promoting charity donations improved my understanding of which fundraising tactics are more likely to be effective.',
 		image: '/images/testimonial-jody.jpg',
+	},
+	{
+		name: 'Kyson Bunthuwong',
+		role: 'Research User',
+		quote: 'The meta-meta analysis on promoting charity donations is the most thorough and helpful analysis on spurring donor behavior I\'ve encountered to date. I have no doubt this report\'s findings and research-informed recommendations will have ripple effects across the fundraising and philanthropic sectors. Anyone looking to increase charitable giving will find this guide immensely helpful.',
+		image: '/images/testimonial-kyson.jpeg',
 	},
 ]
 ---
@@ -74,50 +72,20 @@ const testimonials = [
 		<img src="/images/logo.png" alt="Ready Research" class="w-48" />
 		<h1 class="text-4xl font-bold">Ready Research</h1>
 		<p class="text-xl max-w-2xl">
-			Research, training, and communication services to help address the world's most pressing problems.
+			Ready Research provides research, training, and communication services to help address the world's most pressing problems.
 		</p>
 	</section>
 
-	<!-- Mission Section -->
+	<!-- Research Projects -->
 	<section class="py-12 border-b">
-		<h2 class="text-3xl font-bold mb-4">Our Mission</h2>
-		<p class="text-lg">
-			Ready Research trains and supports researchers to address the world's most pressing problems.
-			We provide research, training, and communication services across areas including international
-			development, AI governance, animal welfare, climate, and behaviour science.
-		</p>
-	</section>
-
-	<!-- Current Projects -->
-	<section class="py-12 border-b">
-		<Grid gridTitle="Current Projects" gridItems={projects} />
-	</section>
-
-	<!-- Research Outputs -->
-	<section class="py-12 border-b">
-		<h2 class="text-3xl font-bold mb-8">Research Outputs</h2>
+		<h2 class="text-3xl font-bold mb-8">Research Projects</h2>
 		<div class="flex flex-col gap-6">
-			{researchOutputs.map((item) => (
-				<a href={item.url} target="_blank" rel="noopener noreferrer" class="block p-6 rounded-lg bg-base-200 hover:bg-base-300 transition-colors">
+			{researchProjects.map((item) => (
+				<a href={item.url} class="block p-6 rounded-lg bg-base-200 hover:bg-base-300 transition-colors">
 					<h3 class="text-xl font-semibold mb-2">{item.title}</h3>
 					<p>{item.description}</p>
 				</a>
 			))}
-		</div>
-	</section>
-
-	<!-- Opportunities -->
-	<section class="py-12 border-b">
-		<h2 class="text-3xl font-bold mb-8">Opportunities</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			<div class="p-6 rounded-lg bg-base-200">
-				<h3 class="text-xl font-semibold mb-3">New Researchers</h3>
-				<p>Volunteer to learn systematic review and meta-analysis skills while contributing to research that matters.</p>
-			</div>
-			<div class="p-6 rounded-lg bg-base-200">
-				<h3 class="text-xl font-semibold mb-3">Experienced Researchers & Practitioners</h3>
-				<p>Join our advisory team or collaborate on projects in international development, AI governance, animal welfare, climate, and behaviour science.</p>
-			</div>
 		</div>
 	</section>
 
