@@ -6,7 +6,7 @@ const researchAreas = [
 		id: 'pandemic',
 		title: 'Pandemic Management & Prevention',
 		description: 'The Survey of Covid-19 Behaviours (SCRUB) project aimed to provide current and future policymakers with actionable insights into public attitudes and behaviours relating to the COVID-19 pandemic. It was led by Ready Research partnering with BehaviourWorks Australia, Monash Sustainable Development Institute, Monash University and Australian Catholic University, plus over 100 international researchers. In Australia, SCRUB received pilot funding from Monash Sustainable Development Institute, then Victorian Government funding for 15 months, producing 21 waves of data collection and reporting.',
-		image: '/images/research-pandemic.jpg',
+		image: '/images/research-pandemic.webp',
 		papers: [
 			{
 				title: 'Information safety assurances increase intentions to use COVID-19 contact tracing applications, regardless of autonomy-supportive or controlling message framing',
@@ -22,7 +22,7 @@ const researchAreas = [
 		id: 'animal-welfare',
 		title: 'Animal Welfare',
 		description: 'We recently completed an overview of reviews identifying interventions that reduce dietary consumption of animal products.',
-		image: '/images/research-animal-welfare.jpg',
+		image: '/images/research-animal-welfare.webp',
 		papers: [
 			{
 				title: 'Interventions to reduce animal product consumption (ScienceDirect)',
@@ -38,7 +38,7 @@ const researchAreas = [
 		id: 'charitable-donations',
 		title: 'Charitable Donations',
 		description: 'We conducted an overview of systematic reviews identifying interventions that promote charitable donations.',
-		image: '/images/research-charitable-donations.jpg',
+		image: '/images/research-charitable-donations.webp',
 		papers: [
 			{
 				title: 'Interventions promoting charitable donations (Springer)',
@@ -62,7 +62,7 @@ const researchAreas = [
 				<section id={area.id} class="p-6 rounded-lg bg-base-200">
 					<h2 class="text-2xl font-bold mb-4">{area.title}</h2>
 					{area.image && (
-						<img src={area.image} alt={area.title} class="rounded-lg mb-4 max-h-64 object-cover w-full" />
+						<img src={area.image} alt={area.title} class="rounded-lg mb-4 w-full" />
 					)}
 					<p class="text-base mb-6">{area.description}</p>
 					<h3 class="text-lg font-semibold mb-3">Published Papers</h3>
