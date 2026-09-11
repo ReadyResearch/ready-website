@@ -38,6 +38,6 @@ export const template = {
 
 export const seo = {
 	default_title: 'Ready Research',
-	default_description: 'Research, training, and communication services to help address the world\'s most pressing problems.',
+	default_description: 'From 2019 to 2026, Ready Research provided research, training, and communication services to help address the world\'s most pressing problems. Now on indefinite pause.',
 	default_image: '/images/logo.png',
 }
